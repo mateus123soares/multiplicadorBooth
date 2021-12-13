@@ -1,0 +1,83 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity booth is
+
+	generic
+	(
+		LP_TOP : natural := 3
+	);
+
+	port 
+	(
+		clk_TOP	  : in std_logic;
+		rst_TOP	  : in std_logic;
+		Mzao_TOP   : in unsigned ((LP_TOP-1) downto 0);
+		mzinho_TOP : in unsigned ((LP_TOP-1) downto 0);
+		R_TOP 	  : out unsigned ((LP_TOP*2-1) downto 0)
+	);
+
+end entity;
+
+architecture rtl of Mult_top is
+
+component Mult_PC is
+	generic
+	(
+		LP_PC : natural := 3
+	);
+
+	port(
+		clk_PC		: in std_logic;
+		rst_PC	 	: in std_logic;
+		outm_PC	 	: in std_logic;
+		startBit_PC	: in std_logic;
+		count_PC		: in unsigned (5 downto 0);
+		init_PC	 	: out	std_logic;
+		enR_PC	 	: out	std_logic
+	);
+end component;
+
+
+signal count_conn: unsigned (5 downto 0);
+signal init_conn, enR_conn, outm_conn, startBit_conn: std_logic;
+
+
+
+begin
+
+
+PO_BSN: Mult_PO generic map (LP_PO => LP_TOP)
+				port map (clk_PO => clk_TOP, 
+					       init_PO => init_conn, 
+							 enR_PO => enR_conn, 
+							 Mzao_PO  => Mzao_TOP, 
+							 mzinho_PO  => mzinho_TOP, 
+							 outm_PO  => outm_conn, 
+							 startBit_PO  => startBit_conn,  
+							 count_PO => count_conn,  
+							 R_PO  => R_TOP);
+
+end rtl;
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
