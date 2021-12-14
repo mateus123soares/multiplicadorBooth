@@ -1,0 +1,12 @@
+Library ieee;
+
+use IEEE.std_logic_1164.all;
+
+entity decoder is
+	port
+	(
+		md : in std_logic_vector(5 downto 0);
+		num : in std_logic_vector(2 downto 0);
+		result : out std_logic_vector(5 downto 0);
+	)
+	
