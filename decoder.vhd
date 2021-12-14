@@ -9,7 +9,7 @@ entity decoder is
 	(
 		md_dec : in std_logic_vector(5 downto 0);
 		num_dec : in std_logic_vector(2 downto 0);
-		result_dec : out std_logic_vector(6 downto 0)
+		result_dec : out std_logic_vector(11 downto 0)
 	);
 end decoder;
 
@@ -25,11 +25,11 @@ begin
 	notMd_mult <= notMd & '0';
 	
 	result_dec <= (others => '0') 	when num_dec="000" or num_dec="111"
-				 else '1' & md_dec 	when ((num_dec ="001" or num_dec="010") and md_dec(5)='1')
-				 else '0' & md_dec 	when ((num_dec ="001" or num_dec="010") and md_dec(5)='0')
-				 else md_mult  	when num_dec="011"
-				 else notMd_mult  when num_dec="100"
-				 else '1' & notMd when ((num_dec ="101" or num_dec="110") and notMd(5)='1')
-				 else '0' & notMd	when ((num_dec ="101" or num_dec="110") and notMd(5)='0')
+				 else "111111" & md_dec 	when ((num_dec ="001" or num_dec="010") and md_dec(5)='1')
+				 else "000000" & md_dec 	when ((num_dec ="001" or num_dec="010") and md_dec(5)='0')
+				 else "00000" & md_mult  	when num_dec="011"
+				 else "11111" & notMd_mult  when num_dec="100"
+				 else "111111" & notMd when ((num_dec ="101" or num_dec="110") and notMd(5)='1')
+				 else "000000" & notMd	when ((num_dec ="101" or num_dec="110") and notMd(5)='0')
 				 else (others => '0');
 end rtl;

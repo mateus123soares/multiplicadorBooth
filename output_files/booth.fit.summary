@@ -1,13 +1,13 @@
-Fitter Status : Successful - Mon Dec 13 20:29:50 2021
+Fitter Status : Successful - Tue Dec 14 18:18:17 2021
 Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Web Edition
 Revision Name : booth
 Top-level Entity Name : booth
 Family : Cyclone V
 Device : 5CEFA7F23C6
 Timing Models : Preliminary
-Logic utilization (in ALMs) : 1 / 56,480 ( < 1 % )
+Logic utilization (in ALMs) : 6 / 56,480 ( < 1 % )
 Total registers : 0
-Total pins : 14 / 240 ( 6 % )
+Total pins : 19 / 240 ( 8 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 7,024,640 ( 0 % )
 Total DSP Blocks : 0 / 156 ( 0 % )

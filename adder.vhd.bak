@@ -1,0 +1,19 @@
+Library ieee;
+
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_signed.all;
+
+entity somador is
+	port
+	(
+		num : in std_logic_vector(11 downto 0);
+		reg_num : in std_logic_vector(11 downto 0);
+		result : out std_logic_vector(11 downto 0)
+	);
+end somador;
+
+architecture rtl of somador is
+begin
+	result <= num + reg_num;
+end rtl;
