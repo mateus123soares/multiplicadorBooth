@@ -31,9 +31,8 @@ begin
 			if (init_PO = '1') then
 				output_reg <= "100000000001";
 			else
-				input_reg_signal <= input_reg;
 				if (write_reg = '1') then
-					output_reg <= input_reg_signal;
+					output_reg <= input_reg;
 				end if;
 			end if;
 		end if;
