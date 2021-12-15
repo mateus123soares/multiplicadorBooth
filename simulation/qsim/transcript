@@ -16,8 +16,10 @@
 # vsim -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.booth_vlg_vec_tst 
 # Loading work.booth_vlg_vec_tst
 # Loading work.booth
+# Loading altera_ver.dffeas
 # Loading work.booth_vlg_sample_tst
 # Loading work.booth_vlg_check_tst
+# Loading altera_ver.PRIM_GDFF_LOW
 # Simulation passed !
-# ** Note: $finish    : booth.vt(347)
+# ** Note: $finish    : booth.vt(349)
 #    Time: 1 us  Iteration: 0  Instance: /booth_vlg_vec_tst/tb_out

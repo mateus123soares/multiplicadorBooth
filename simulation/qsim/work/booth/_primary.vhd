@@ -4,6 +4,7 @@ entity booth is
     port(
         md              : in     vl_logic_vector(5 downto 0);
         mr              : in     vl_logic_vector(5 downto 0);
+        clk             : in     vl_logic;
         result          : out    vl_logic_vector(11 downto 0)
     );
 end booth;

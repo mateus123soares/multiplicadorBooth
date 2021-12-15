@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "12/14/2021 19:32:40"
+// Generated on "12/14/2021 21:53:21"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    booth
 // 
@@ -27,17 +27,19 @@
 
 `timescale 1 ps/ 1 ps
 module booth_vlg_sample_tst(
+	clk,
 	md,
 	mr,
 	sampler_tx
 );
+input  clk;
 input [5:0] md;
 input [5:0] mr;
 output sampler_tx;
 
 reg sample;
 time current_time;
-always @(md or mr)
+always @(clk or md or mr)
                                                                                 
 begin                                                 
  if ($realtime > 0)                                   
@@ -351,6 +353,7 @@ endmodule
 module booth_vlg_vec_tst();
 // constants                                           
 // general purpose registers
+reg clk;
 reg [5:0] md;
 reg [5:0] mr;
 // wires                                               
@@ -361,6 +364,7 @@ wire sampler;
 // assign statements (if any)                          
 booth i1 (
 // port map - connection between master ports and signals/registers   
+	.clk(clk),
 	.md(md),
 	.mr(mr),
 	.result(result)
@@ -426,7 +430,14 @@ begin
 	mr[0] = 1'b0;
 end 
 
+// clk
+initial
+begin
+	clk = 1'b1;
+end 
+
 booth_vlg_sample_tst tb_sample (
+	.clk(clk),
 	.md(md),
 	.mr(mr),
 	.sampler_tx(sampler)
