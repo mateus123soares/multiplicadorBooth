@@ -942,6 +942,16 @@ SIGNAL("selec_mux_saida1[0]")
 	PARENT = "selec_mux_saida1";
 }
 
+SIGNAL("init_reg_saida")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("md[5]")
 {
 	NODE
@@ -1510,8 +1520,7 @@ TRANSITION_LIST("count_PC[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 440.0;
-		LEVEL 1 FOR 560.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1520,9 +1529,8 @@ TRANSITION_LIST("count_PC[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 320.0;
-		LEVEL 1 FOR 120.0;
-		LEVEL 0 FOR 560.0;
+		LEVEL 0 FOR 130.0;
+		LEVEL 1 FOR 870.0;
 	}
 }
 
@@ -1681,6 +1689,15 @@ TRANSITION_LIST("selec_mux_saida1[1]")
 }
 
 TRANSITION_LIST("selec_mux_saida1[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("init_reg_saida")
 {
 	NODE
 	{
@@ -2592,6 +2609,15 @@ DISPLAY_LINE
 	TREE_INDEX = 90;
 	TREE_LEVEL = 1;
 	PARENT = 78;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "init_reg_saida";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 91;
+	TREE_LEVEL = 0;
 }
 
 TIME_BAR

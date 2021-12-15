@@ -18,11 +18,10 @@ end entity;
 architecture rtl of machine is
 
 	-- Build an enumerated type for the state machine
-	type state_type is (s0, s1, s2, s3);
+	type state_type is (s0, s1);
 
 	-- Register to hold the current state
-	signal state: state_type;	
-	constant limit: unsigned(5 downto 0):= (0|1=> '1', others => '0');
+	signal state: state_type;
 	
 begin
 
@@ -35,22 +34,9 @@ begin
 			else
 				case state is
 					when S0=>
-							if (count_PC = "000") then
-								state <= S1;
-							end if;
+						state <= S1;
 					when S1=>
-							if (count_PC = "001") then
-								state <= S2;
-							end if;
-							
-					when S2=>
-							if (count_PC = "010") then
-								state <= S3;
-							end if;
-					when S3 =>
-							if (count_PC = "011") then
-								state <= S3;
-							end if;								
+						state <= S1;						
 				end case;
 			end if;
 		end if;
@@ -73,16 +59,6 @@ begin
 				write_reg2 <= '0';
 				write_reg3 <= '0';
 				selec_mux <= "00";
-			when s2 =>
-			   write_reg <= '0';
-				write_reg2 <= '1';
-				write_reg3 <= '0';
-				selec_mux <= "01";
-			when s3 =>
-			   write_reg <= '0';
-				write_reg2 <= '0';
-				write_reg3 <= '1';
-				selec_mux <= "10";
 		end case;
 	end process;
 

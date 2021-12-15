@@ -12,7 +12,7 @@ entity booth is
 		saidaReg2,saidaReg3,selec_mux_saida1 : out std_logic_vector(11 downto 0);
 		saidaReg1 : out std_logic_vector(11 downto 0);
 		selec_mux_saida : out std_logic_vector(1 downto 0);
-		write_reg_saida,write_reg2_saida,write_reg3_saida : out std_logic
+		write_reg_saida,write_reg2_saida,write_reg3_saida, init_reg_saida : out std_logic
 	);
 
 end entity;
@@ -99,11 +99,15 @@ begin
 	selec_mux => selec_mux
 	);
 	
+	init_reg_saida <= init_reg;
+	
 	dec: decoder port map (
 		md_dec => md,
 		num_dec => num,
-		result_dec => result
+		result_dec => result_dec
 	);
+	
+	result <= result_dec;
 	
 	dec_mux: mux port map (
 		men1 => result_dec,

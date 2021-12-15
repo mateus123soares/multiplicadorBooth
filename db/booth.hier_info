@@ -84,32 +84,21 @@ selec_mux_saida[1] <= machine:state_machine.selec_mux[1]
 write_reg_saida <= machine:state_machine.write_reg
 write_reg2_saida <= machine:state_machine.write_reg2
 write_reg3_saida <= machine:state_machine.write_reg3
+init_reg_saida <= machine:state_machine.init_reg
 
 
 |booth|machine:state_machine
-clk_PC => state~5.DATAIN
-rst_PC => state.OUTPUTSELECT
-rst_PC => state.OUTPUTSELECT
-rst_PC => state.OUTPUTSELECT
-rst_PC => state.OUTPUTSELECT
-count_PC[0] => Equal0.IN2
-count_PC[0] => Equal1.IN2
-count_PC[0] => Equal2.IN1
-count_PC[0] => Equal3.IN2
-count_PC[1] => Equal0.IN1
-count_PC[1] => Equal1.IN1
-count_PC[1] => Equal2.IN2
-count_PC[1] => Equal3.IN1
-count_PC[2] => Equal0.IN0
-count_PC[2] => Equal1.IN0
-count_PC[2] => Equal2.IN0
-count_PC[2] => Equal3.IN0
-write_reg <= write_reg.DB_MAX_OUTPUT_PORT_TYPE
-write_reg2 <= write_reg2.DB_MAX_OUTPUT_PORT_TYPE
-write_reg3 <= write_reg3.DB_MAX_OUTPUT_PORT_TYPE
-init_reg <= init_reg$latch.DB_MAX_OUTPUT_PORT_TYPE
-selec_mux[0] <= selec_mux[0].DB_MAX_OUTPUT_PORT_TYPE
-selec_mux[1] <= selec_mux[1].DB_MAX_OUTPUT_PORT_TYPE
+clk_PC => state.CLK
+rst_PC => state.DATAIN
+count_PC[0] => ~NO_FANOUT~
+count_PC[1] => ~NO_FANOUT~
+count_PC[2] => ~NO_FANOUT~
+write_reg <= state.DB_MAX_OUTPUT_PORT_TYPE
+write_reg2 <= <GND>
+write_reg3 <= <GND>
+init_reg <= state.DB_MAX_OUTPUT_PORT_TYPE
+selec_mux[0] <= <GND>
+selec_mux[1] <= <GND>
 
 
 |booth|decoder:dec

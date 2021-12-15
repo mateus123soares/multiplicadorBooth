@@ -2,6 +2,7 @@ library verilog;
 use verilog.vl_types.all;
 entity booth_vlg_check_tst is
     port(
+        init_reg_saida  : in     vl_logic;
         result          : in     vl_logic_vector(11 downto 0);
         saidaReg1       : in     vl_logic_vector(11 downto 0);
         saidaReg2       : in     vl_logic_vector(11 downto 0);
