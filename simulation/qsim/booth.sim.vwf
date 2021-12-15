@@ -1056,7 +1056,8 @@ TRANSITION_LIST("result[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[10]")
@@ -1064,7 +1065,8 @@ TRANSITION_LIST("result[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[9]")
@@ -1072,7 +1074,8 @@ TRANSITION_LIST("result[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[8]")
@@ -1080,7 +1083,8 @@ TRANSITION_LIST("result[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[7]")
@@ -1088,7 +1092,8 @@ TRANSITION_LIST("result[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[6]")
@@ -1096,7 +1101,8 @@ TRANSITION_LIST("result[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[5]")
@@ -1112,7 +1118,8 @@ TRANSITION_LIST("result[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[3]")
@@ -1128,7 +1135,8 @@ TRANSITION_LIST("result[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[1]")
@@ -1136,7 +1144,8 @@ TRANSITION_LIST("result[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("result[0]")
@@ -1473,31 +1482,6 @@ TRANSITION_LIST("saidaReg3[0]")
 		LEVEL 0 FOR 1000.0;
 	}
 }
-TRANSITION_LIST("count_PC[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-TRANSITION_LIST("count_PC[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-TRANSITION_LIST("count_PC[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 130.0;
-		LEVEL 1 FOR 870.0;
-	}
-}
 TRANSITION_LIST("rst_PC")
 {
 	NODE
@@ -1520,7 +1504,8 @@ TRANSITION_LIST("selec_mux_saida[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 750.0;
 	}
 }
 TRANSITION_LIST("write_reg2_saida")
@@ -1528,7 +1513,8 @@ TRANSITION_LIST("write_reg2_saida")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 750.0;
 	}
 }
 TRANSITION_LIST("write_reg3_saida")
@@ -1545,7 +1531,8 @@ TRANSITION_LIST("write_reg_saida")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 150.0;
-		LEVEL 1 FOR 850.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[11]")
@@ -1553,7 +1540,8 @@ TRANSITION_LIST("selec_mux_saida1[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[10]")
@@ -1561,7 +1549,8 @@ TRANSITION_LIST("selec_mux_saida1[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[9]")
@@ -1569,7 +1558,8 @@ TRANSITION_LIST("selec_mux_saida1[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[8]")
@@ -1577,7 +1567,8 @@ TRANSITION_LIST("selec_mux_saida1[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[7]")
@@ -1585,7 +1576,8 @@ TRANSITION_LIST("selec_mux_saida1[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[6]")
@@ -1593,7 +1585,8 @@ TRANSITION_LIST("selec_mux_saida1[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[5]")
@@ -1609,7 +1602,8 @@ TRANSITION_LIST("selec_mux_saida1[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[3]")
@@ -1625,7 +1619,8 @@ TRANSITION_LIST("selec_mux_saida1[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[1]")
@@ -1633,7 +1628,8 @@ TRANSITION_LIST("selec_mux_saida1[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 250.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[0]")

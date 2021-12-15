@@ -6,7 +6,7 @@ entity booth is
 	port(
 		md, mr : in std_logic_vector(5 downto 0);
 		result : out std_logic_vector(11 downto 0);
-		count_PC: in std_logic_vector(2 downto 0);
+		input_mr: in std_logic_vector(5 downto 0);
 		rst_PC,clk : in std_logic;
 		--sinal aux
 		saidaReg2,saidaReg3,selec_mux_saida1 : out std_logic_vector(11 downto 0);
@@ -70,9 +70,10 @@ end component;
 component machine is
 	port(
 		clk_PC,rst_PC		: in std_logic;
-		count_PC		: in std_logic_vector (2 downto 0);
+		input_mr		: in std_logic_vector (5 downto 0);
 		write_reg,write_reg2,write_reg3,init_reg : out std_logic;
-		selec_mux : out std_logic_vector(1 downto 0)
+		selec_mux : out std_logic_vector(1 downto 0);
+		mr_with_bit_n : out std_logic_vector (2 downto 0)
 	);
 
 end component;
@@ -85,18 +86,17 @@ signal write_reg,write_reg2,write_reg3,init_reg : std_logic;
 signal selec_mux : std_logic_vector(1 downto 0);
 
 begin
-	mr_with_bit <= (mr & '0');
-	num <= mr_with_bit(2 downto 0);
 	
 	state_machine: machine port map(
 	clk_PC => clk,
 	rst_PC => rst_PC,
-	count_PC => count_PC,
+	input_mr => mr,
 	write_reg => write_reg,
 	write_reg2 => write_reg2,
 	write_reg3 => write_reg3,
 	init_reg => init_reg,
-	selec_mux => selec_mux
+	selec_mux => selec_mux,
+	mr_with_bit_n => num
 	);
 	
 	init_reg_saida <= init_reg;
@@ -111,9 +111,9 @@ begin
 	
 	dec_mux: mux port map (
 		men1 => result_dec,
-		men2 => "000000000001",
-		men3 => "000000000000",
-		men4 => "000000000000",
+		men2 => result_dec,
+		men3 => output_reg3,
+		men4 => result_dec,
 		sel => selec_mux,
 		result_mux => output_mux
 	);

@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "12/15/2021 03:23:34"
+// Generated on "12/15/2021 04:11:22"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    booth
 // 
@@ -28,14 +28,14 @@
 `timescale 1 ps/ 1 ps
 module booth_vlg_sample_tst(
 	clk,
-	count_PC,
+	input_mr,
 	md,
 	mr,
 	rst_PC,
 	sampler_tx
 );
 input  clk;
-input [2:0] count_PC;
+input [5:0] input_mr;
 input [5:0] md;
 input [5:0] mr;
 input  rst_PC;
@@ -43,7 +43,7 @@ output sampler_tx;
 
 reg sample;
 time current_time;
-always @(clk or count_PC or md or mr or rst_PC)
+always @(clk or input_mr or md or mr or rst_PC)
                                                                                 
 begin                                                 
  if ($realtime > 0)                                   
@@ -1406,7 +1406,7 @@ module booth_vlg_vec_tst();
 // constants                                           
 // general purpose registers
 reg clk;
-reg [2:0] count_PC;
+reg [5:0] input_mr;
 reg [5:0] md;
 reg [5:0] mr;
 reg rst_PC;
@@ -1428,8 +1428,8 @@ wire sampler;
 booth i1 (
 // port map - connection between master ports and signals/registers   
 	.clk(clk),
-	.count_PC(count_PC),
 	.init_reg_saida(init_reg_saida),
+	.input_mr(input_mr),
 	.md(md),
 	.mr(mr),
 	.result(result),
@@ -1518,26 +1518,10 @@ begin
 	rst_PC = 1'b1;
 	rst_PC = #70000 1'b0;
 end 
-// count_PC[ 2 ]
-initial
-begin
-	count_PC[2] = 1'b0;
-end 
-// count_PC[ 1 ]
-initial
-begin
-	count_PC[1] = 1'b0;
-end 
-// count_PC[ 0 ]
-initial
-begin
-	count_PC[0] = 1'b0;
-	count_PC[0] = #130000 1'b1;
-end 
 
 booth_vlg_sample_tst tb_sample (
 	.clk(clk),
-	.count_PC(count_PC),
+	.input_mr(input_mr),
 	.md(md),
 	.mr(mr),
 	.rst_PC(rst_PC),
