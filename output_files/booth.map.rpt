@@ -1,5 +1,5 @@
 Analysis & Synthesis report for booth
-Wed Dec 15 04:11:09 2021
+Wed Dec 15 10:12:06 2021
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -14,11 +14,11 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |booth|machine:state_machine|state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "reg:add_reg"
- 13. Port Connectivity Checks: "reg:dec_reg2"
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "reg:add_reg"
+ 12. Port Connectivity Checks: "reg:dec_reg2"
+ 13. Port Connectivity Checks: "machine:state_machine"
  14. Elapsed Time Per Partition
  15. Analysis & Synthesis Messages
 
@@ -46,14 +46,14 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +-------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status         ; Successful - Wed Dec 15 04:11:08 2021      ;
+; Analysis & Synthesis Status         ; Successful - Wed Dec 15 10:12:06 2021      ;
 ; Quartus II 64-Bit Version           ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                       ; booth                                      ;
 ; Top-level Entity Name               ; booth                                      ;
 ; Family                              ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)         ; N/A                                        ;
-; Total registers                     ; 24                                         ;
-; Total pins                          ; 86                                         ;
+; Total registers                     ; 43                                         ;
+; Total pins                          ; 98                                         ;
 ; Total virtual pins                  ; 0                                          ;
 ; Total block memory bits             ; 0                                          ;
 ; Total DSP Blocks                    ; 0                                          ;
@@ -180,29 +180,29 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                  ;
-+---------------------------------------------+--------------------------------+
-; Resource                                    ; Usage                          ;
-+---------------------------------------------+--------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 24                             ;
-;                                             ;                                ;
-; Combinational ALUT usage for logic          ; 35                             ;
-;     -- 7 input functions                    ; 4                              ;
-;     -- 6 input functions                    ; 8                              ;
-;     -- 5 input functions                    ; 9                              ;
-;     -- 4 input functions                    ; 2                              ;
-;     -- <=3 input functions                  ; 12                             ;
-;                                             ;                                ;
-; Dedicated logic registers                   ; 24                             ;
-;                                             ;                                ;
-; I/O pins                                    ; 86                             ;
-; Total DSP Blocks                            ; 0                              ;
-; Maximum fan-out node                        ; machine:state_machine|state.s2 ;
-; Maximum fan-out                             ; 24                             ;
-; Total fan-out                               ; 362                            ;
-; Average fan-out                             ; 1.57                           ;
-+---------------------------------------------+--------------------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 38        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 67        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 5         ;
+;     -- 5 input functions                    ; 12        ;
+;     -- 4 input functions                    ; 12        ;
+;     -- <=3 input functions                  ; 38        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 43        ;
+;                                             ;           ;
+; I/O pins                                    ; 98        ;
+; Total DSP Blocks                            ; 0         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 43        ;
+; Total fan-out                               ; 571       ;
+; Average fan-out                             ; 1.87      ;
++---------------------------------------------+-----------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,37 +210,32 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Library Name ;
 +----------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------+--------------+
-; |booth                     ; 35 (0)            ; 24 (0)       ; 0                 ; 0          ; 86   ; 0            ; |booth                       ;              ;
-;    |decoder:dec|           ; 19 (19)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |booth|decoder:dec           ;              ;
-;    |machine:state_machine| ; 6 (6)             ; 3 (3)        ; 0                 ; 0          ; 0    ; 0            ; |booth|machine:state_machine ;              ;
+; |booth                     ; 67 (0)            ; 43 (0)       ; 0                 ; 0          ; 98   ; 0            ; |booth                       ;              ;
+;    |adder:add|             ; 12 (12)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |booth|adder:add             ;              ;
+;    |decoder:dec|           ; 23 (23)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |booth|decoder:dec           ;              ;
+;    |machine:state_machine| ; 16 (16)           ; 7 (7)        ; 0                 ; 0          ; 0    ; 0            ; |booth|machine:state_machine ;              ;
+;    |mux:dec_mux|           ; 13 (13)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |booth|mux:dec_mux           ;              ;
+;    |reg:add_reg|           ; 0 (0)             ; 12 (12)      ; 0                 ; 0          ; 0    ; 0            ; |booth|reg:add_reg           ;              ;
 ;    |reg:dec_reg2|          ; 0 (0)             ; 12 (12)      ; 0                 ; 0          ; 0    ; 0            ; |booth|reg:dec_reg2          ;              ;
-;    |reg:dec_reg|           ; 10 (10)           ; 9 (9)        ; 0                 ; 0          ; 0    ; 0            ; |booth|reg:dec_reg           ;              ;
+;    |reg:dec_reg|           ; 3 (3)             ; 12 (12)      ; 0                 ; 0          ; 0    ; 0            ; |booth|reg:dec_reg           ;              ;
 +----------------------------+-------------------+--------------+-------------------+------------+------+--------------+------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------+
-; State Machine - |booth|machine:state_machine|state ;
-+----------+----------+----------+-------------------+
-; Name     ; state.s2 ; state.s1 ; state.s0          ;
-+----------+----------+----------+-------------------+
-; state.s0 ; 0        ; 0        ; 0                 ;
-; state.s1 ; 0        ; 1        ; 1                 ;
-; state.s2 ; 1        ; 0        ; 1                 ;
-+----------+----------+----------+-------------------+
-
-
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; reg:add_reg|output_reg[1..11]          ; Merged with reg:add_reg|output_reg[0]  ;
-; reg:dec_reg|output_reg[7..9]           ; Merged with reg:dec_reg|output_reg[10] ;
-; reg:add_reg|output_reg[0]              ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 15 ;                                        ;
-+----------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------+
+; State Machine - |booth|machine:state_machine|state                                    ;
++----------+----------+----------+----------+----------+----------+----------+----------+
+; Name     ; state.s6 ; state.s5 ; state.s4 ; state.s3 ; state.s2 ; state.s1 ; state.s0 ;
++----------+----------+----------+----------+----------+----------+----------+----------+
+; state.s0 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; state.s1 ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; state.s2 ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; state.s3 ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; state.s4 ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; state.s5 ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; state.s6 ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+----------+----------+----------+
 
 
 +------------------------------------------------------+
@@ -248,25 +243,26 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 24    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 43    ;
+; Number of registers using Synchronous Clear  ; 10    ;
+; Number of registers using Synchronous Load   ; 12    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Clock Enable       ; 36    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |booth|reg:dec_reg|output_reg[0] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |booth|reg:dec_reg|output_reg[1] ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |booth|decoder:dec|result_dec[1] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |booth|reg:dec_reg|output_reg[0]       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |booth|reg:dec_reg|output_reg[7]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |booth|machine:state_machine|Selector1 ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |booth|decoder:dec|result_dec[1]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
 +-------------------------------------------+
@@ -287,6 +283,15 @@ Encoding Type:  One-Hot
 +---------+-------+----------+--------------+
 
 
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "machine:state_machine"                                                                 ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; out_add ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -302,7 +307,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Dec 15 04:11:05 2021
+    Info: Processing started: Wed Dec 15 10:12:01 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off booth -c booth
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file register.vhd
@@ -325,52 +330,44 @@ Info (12021): Found 2 design units, including 1 entities, in source file machine
     Info (12022): Found design unit 1: machine-rtl
     Info (12023): Found entity 1: machine
 Info (12127): Elaborating entity "booth" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at booth.vhd(88): object "out_add" assigned a value but never read
 Info (12128): Elaborating entity "machine" for hierarchy "machine:state_machine"
-Warning (10492): VHDL Process Statement warning at machine.vhd(60): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at machine.vhd(61): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at machine.vhd(68): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at machine.vhd(69): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at machine.vhd(76): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at machine.vhd(77): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(69): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(70): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(78): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(79): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(87): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(88): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(96): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(97): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(105): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(106): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(114): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(115): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(123): signal "input_mr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at machine.vhd(124): signal "mr_with_bit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "decoder" for hierarchy "decoder:dec"
 Info (12128): Elaborating entity "mux" for hierarchy "mux:dec_mux"
 Info (12128): Elaborating entity "reg" for hierarchy "reg:dec_reg"
 Info (12128): Elaborating entity "adder" for hierarchy "adder:add"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "saidaReg3[0]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[1]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[2]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[3]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[4]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[5]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[6]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[7]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[8]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[9]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[10]" is stuck at GND
-    Warning (13410): Pin "saidaReg3[11]" is stuck at GND
-    Warning (13410): Pin "selec_mux_saida[1]" is stuck at GND
-    Warning (13410): Pin "write_reg3_saida" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "mr[4]"
-    Warning (15610): No output dependent on input pin "mr[5]"
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "input_mr[0]"
     Warning (15610): No output dependent on input pin "input_mr[1]"
     Warning (15610): No output dependent on input pin "input_mr[2]"
     Warning (15610): No output dependent on input pin "input_mr[3]"
     Warning (15610): No output dependent on input pin "input_mr[4]"
     Warning (15610): No output dependent on input pin "input_mr[5]"
-Info (21057): Implemented 133 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 199 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 20 input pins
-    Info (21059): Implemented 66 output pins
-    Info (21061): Implemented 47 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 4677 megabytes
-    Info: Processing ended: Wed Dec 15 04:11:09 2021
-    Info: Elapsed time: 00:00:04
+    Info (21059): Implemented 78 output pins
+    Info (21061): Implemented 101 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4676 megabytes
+    Info: Processing ended: Wed Dec 15 10:12:06 2021
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 
 

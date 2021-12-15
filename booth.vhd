@@ -12,7 +12,8 @@ entity booth is
 		saidaReg2,saidaReg3,selec_mux_saida1 : out std_logic_vector(11 downto 0);
 		saidaReg1 : out std_logic_vector(11 downto 0);
 		selec_mux_saida : out std_logic_vector(1 downto 0);
-		write_reg_saida,write_reg2_saida,write_reg3_saida, init_reg_saida : out std_logic
+		write_reg_saida,write_reg2_saida,write_reg3_saida, init_reg_saida : out std_logic;
+		saida_adder: out std_logic_vector(11 downto 0)
 	);
 
 end entity;
@@ -73,7 +74,8 @@ component machine is
 		input_mr		: in std_logic_vector (5 downto 0);
 		write_reg,write_reg2,write_reg3,init_reg : out std_logic;
 		selec_mux : out std_logic_vector(1 downto 0);
-		mr_with_bit_n : out std_logic_vector (2 downto 0)
+		mr_with_bit_n : out std_logic_vector (2 downto 0);
+		out_add : out std_logic_vector(1 downto 0)
 	);
 
 end component;
@@ -83,7 +85,7 @@ signal num, num2, num3 : std_logic_vector(2 downto 0);
 signal result_dec, result_dec2, result_dec3 : std_logic_vector(11 downto 0);
 signal output_mux, output_reg1, output_reg2, output_reg3 ,output_add : std_logic_vector(11 downto 0);
 signal write_reg,write_reg2,write_reg3,init_reg : std_logic;
-signal selec_mux : std_logic_vector(1 downto 0);
+signal selec_mux, out_add : std_logic_vector(1 downto 0);
 
 begin
 	
@@ -96,7 +98,8 @@ begin
 	write_reg3 => write_reg3,
 	init_reg => init_reg,
 	selec_mux => selec_mux,
-	mr_with_bit_n => num
+	mr_with_bit_n => num,
+	out_add => out_add
 	);
 	
 	init_reg_saida <= init_reg;
@@ -112,7 +115,7 @@ begin
 	dec_mux: mux port map (
 		men1 => result_dec,
 		men2 => result_dec,
-		men3 => output_reg3,
+		men3 => output_add,
 		men4 => result_dec,
 		sel => selec_mux,
 		result_mux => output_mux
@@ -150,7 +153,9 @@ begin
 		reg_num_add => output_reg2,
 		result_add => output_add
 	);	
-		
+	
+	saida_adder <= output_add;
+	
 	add_reg: reg port map (
 		input_reg => output_add,
 		clk_PO => clk,

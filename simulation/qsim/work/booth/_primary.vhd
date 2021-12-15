@@ -16,6 +16,7 @@ entity booth is
         write_reg_saida : out    vl_logic;
         write_reg2_saida: out    vl_logic;
         write_reg3_saida: out    vl_logic;
-        init_reg_saida  : out    vl_logic
+        init_reg_saida  : out    vl_logic;
+        saida_adder     : out    vl_logic_vector(11 downto 0)
     );
 end booth;

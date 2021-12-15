@@ -4,6 +4,7 @@ entity booth_vlg_check_tst is
     port(
         init_reg_saida  : in     vl_logic;
         result          : in     vl_logic_vector(11 downto 0);
+        saida_adder     : in     vl_logic_vector(11 downto 0);
         saidaReg1       : in     vl_logic_vector(11 downto 0);
         saidaReg2       : in     vl_logic_vector(11 downto 0);
         saidaReg3       : in     vl_logic_vector(11 downto 0);

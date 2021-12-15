@@ -88,29 +88,48 @@ write_reg_saida <= machine:state_machine.write_reg
 write_reg2_saida <= machine:state_machine.write_reg2
 write_reg3_saida <= machine:state_machine.write_reg3
 init_reg_saida <= machine:state_machine.init_reg
+saida_adder[0] <= adder:add.result_add[0]
+saida_adder[1] <= adder:add.result_add[1]
+saida_adder[2] <= adder:add.result_add[2]
+saida_adder[3] <= adder:add.result_add[3]
+saida_adder[4] <= adder:add.result_add[4]
+saida_adder[5] <= adder:add.result_add[5]
+saida_adder[6] <= adder:add.result_add[6]
+saida_adder[7] <= adder:add.result_add[7]
+saida_adder[8] <= adder:add.result_add[8]
+saida_adder[9] <= adder:add.result_add[9]
+saida_adder[10] <= adder:add.result_add[10]
+saida_adder[11] <= adder:add.result_add[11]
 
 
 |booth|machine:state_machine
-clk_PC => state~2.DATAIN
+clk_PC => state~8.DATAIN
+rst_PC => state.OUTPUTSELECT
+rst_PC => state.OUTPUTSELECT
+rst_PC => state.OUTPUTSELECT
+rst_PC => state.OUTPUTSELECT
 rst_PC => state.OUTPUTSELECT
 rst_PC => state.OUTPUTSELECT
 rst_PC => state.s0.DATAIN
-input_mr[0] => mr_with_bit_n.DATAA
-input_mr[1] => mr_with_bit_n.DATAA
-input_mr[1] => mr_with_bit_n.DATAB
-input_mr[2] => mr_with_bit_n.DATAB
-input_mr[3] => mr_with_bit_n.DATAB
-input_mr[4] => ~NO_FANOUT~
-input_mr[5] => ~NO_FANOUT~
+input_mr[0] => Selector1.IN5
+input_mr[1] => Selector0.IN5
+input_mr[1] => Selector2.IN5
+input_mr[2] => Selector1.IN4
+input_mr[3] => Selector0.IN4
+input_mr[3] => Selector2.IN4
+input_mr[4] => Selector1.IN3
+input_mr[5] => Selector0.IN3
 write_reg <= write_reg.DB_MAX_OUTPUT_PORT_TYPE
 write_reg2 <= write_reg2.DB_MAX_OUTPUT_PORT_TYPE
-write_reg3 <= <GND>
+write_reg3 <= write_reg3.DB_MAX_OUTPUT_PORT_TYPE
 init_reg <= init_reg.DB_MAX_OUTPUT_PORT_TYPE
-selec_mux[0] <= selec_mux[0].DB_MAX_OUTPUT_PORT_TYPE
-selec_mux[1] <= <GND>
-mr_with_bit_n[0] <= mr_with_bit_n.DB_MAX_OUTPUT_PORT_TYPE
-mr_with_bit_n[1] <= mr_with_bit_n.DB_MAX_OUTPUT_PORT_TYPE
-mr_with_bit_n[2] <= mr_with_bit_n.DB_MAX_OUTPUT_PORT_TYPE
+selec_mux[0] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+selec_mux[1] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+mr_with_bit_n[0] <= Selector2.DB_MAX_OUTPUT_PORT_TYPE
+mr_with_bit_n[1] <= Selector1.DB_MAX_OUTPUT_PORT_TYPE
+mr_with_bit_n[2] <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+out_add[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out_add[1] <= out_add.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |booth|decoder:dec

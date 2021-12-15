@@ -955,6 +955,136 @@ SIGNAL("init_reg_saida")
 	PARENT = "";
 }
 
+SIGNAL("saida_adder")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 12;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("saida_adder[11]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[10]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[9]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[8]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
+SIGNAL("saida_adder[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_adder";
+}
+
 TRANSITION_LIST("md[5]")
 {
 	NODE
@@ -1110,7 +1240,8 @@ TRANSITION_LIST("result[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 550.0;
 	}
 }
 TRANSITION_LIST("result[4]")
@@ -1127,7 +1258,8 @@ TRANSITION_LIST("result[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 550.0;
 	}
 }
 TRANSITION_LIST("result[2]")
@@ -1145,7 +1277,8 @@ TRANSITION_LIST("result[1]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 550.0;
 	}
 }
 TRANSITION_LIST("result[0]")
@@ -1343,7 +1476,8 @@ TRANSITION_LIST("saidaReg2[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 650.0;
+		LEVEL 1 FOR 350.0;
 	}
 }
 TRANSITION_LIST("saidaReg2[4]")
@@ -1359,7 +1493,8 @@ TRANSITION_LIST("saidaReg2[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 650.0;
+		LEVEL 1 FOR 350.0;
 	}
 }
 TRANSITION_LIST("saidaReg2[2]")
@@ -1375,7 +1510,8 @@ TRANSITION_LIST("saidaReg2[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 650.0;
+		LEVEL 1 FOR 350.0;
 	}
 }
 TRANSITION_LIST("saidaReg2[0]")
@@ -1391,7 +1527,9 @@ TRANSITION_LIST("saidaReg3[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[10]")
@@ -1399,7 +1537,9 @@ TRANSITION_LIST("saidaReg3[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[9]")
@@ -1407,7 +1547,9 @@ TRANSITION_LIST("saidaReg3[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[8]")
@@ -1415,7 +1557,9 @@ TRANSITION_LIST("saidaReg3[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[7]")
@@ -1423,7 +1567,9 @@ TRANSITION_LIST("saidaReg3[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[6]")
@@ -1431,7 +1577,9 @@ TRANSITION_LIST("saidaReg3[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[5]")
@@ -1447,7 +1595,9 @@ TRANSITION_LIST("saidaReg3[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[3]")
@@ -1463,7 +1613,9 @@ TRANSITION_LIST("saidaReg3[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[1]")
@@ -1471,7 +1623,9 @@ TRANSITION_LIST("saidaReg3[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 300.0;
+		LEVEL 0 FOR 250.0;
 	}
 }
 TRANSITION_LIST("saidaReg3[0]")
@@ -1496,7 +1650,8 @@ TRANSITION_LIST("selec_mux_saida[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 450.0;
+		LEVEL 1 FOR 550.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida[0]")
@@ -1505,7 +1660,9 @@ TRANSITION_LIST("selec_mux_saida[0]")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 250.0;
-		LEVEL 1 FOR 750.0;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 450.0;
 	}
 }
 TRANSITION_LIST("write_reg2_saida")
@@ -1514,7 +1671,10 @@ TRANSITION_LIST("write_reg2_saida")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 250.0;
-		LEVEL 1 FOR 750.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 350.0;
 	}
 }
 TRANSITION_LIST("write_reg3_saida")
@@ -1522,7 +1682,10 @@ TRANSITION_LIST("write_reg3_saida")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 350.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 350.0;
 	}
 }
 TRANSITION_LIST("write_reg_saida")
@@ -1532,7 +1695,9 @@ TRANSITION_LIST("write_reg_saida")
 		REPEAT = 1;
 		LEVEL 0 FOR 150.0;
 		LEVEL 1 FOR 100.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[11]")
@@ -1541,7 +1706,9 @@ TRANSITION_LIST("selec_mux_saida1[11]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[10]")
@@ -1550,7 +1717,9 @@ TRANSITION_LIST("selec_mux_saida1[10]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[9]")
@@ -1559,7 +1728,9 @@ TRANSITION_LIST("selec_mux_saida1[9]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[8]")
@@ -1568,7 +1739,9 @@ TRANSITION_LIST("selec_mux_saida1[8]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[7]")
@@ -1577,7 +1750,9 @@ TRANSITION_LIST("selec_mux_saida1[7]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[6]")
@@ -1586,7 +1761,9 @@ TRANSITION_LIST("selec_mux_saida1[6]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[5]")
@@ -1594,7 +1771,8 @@ TRANSITION_LIST("selec_mux_saida1[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 550.0;
+		LEVEL 1 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[4]")
@@ -1603,7 +1781,9 @@ TRANSITION_LIST("selec_mux_saida1[4]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[3]")
@@ -1611,7 +1791,8 @@ TRANSITION_LIST("selec_mux_saida1[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 550.0;
+		LEVEL 1 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[2]")
@@ -1620,7 +1801,9 @@ TRANSITION_LIST("selec_mux_saida1[2]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 100.0;
+		LEVEL 0 FOR 450.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[1]")
@@ -1629,7 +1812,8 @@ TRANSITION_LIST("selec_mux_saida1[1]")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 250.0;
-		LEVEL 0 FOR 750.0;
+		LEVEL 0 FOR 200.0;
+		LEVEL 1 FOR 550.0;
 	}
 }
 TRANSITION_LIST("selec_mux_saida1[0]")
@@ -1647,6 +1831,122 @@ TRANSITION_LIST("init_reg_saida")
 		REPEAT = 1;
 		LEVEL 1 FOR 150.0;
 		LEVEL 0 FOR 850.0;
+	}
+}
+TRANSITION_LIST("saida_adder[11]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 600.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[10]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+TRANSITION_LIST("saida_adder[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 1000.0;
+	}
+}
+TRANSITION_LIST("saida_adder[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 250.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 350.0;
+	}
+}
+TRANSITION_LIST("saida_adder[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50.0;
+		LEVEL 1 FOR 200.0;
+		LEVEL 0 FOR 750.0;
 	}
 }
 
@@ -2563,6 +2863,136 @@ DISPLAY_LINE
 	RADIX = Binary;
 	TREE_INDEX = 91;
 	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 92;
+	TREE_LEVEL = 0;
+	CHILDREN = 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[11]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 93;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[10]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 94;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[9]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 95;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[8]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 96;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[7]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 97;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 98;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 99;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 100;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 101;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 102;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 103;
+	TREE_LEVEL = 1;
+	PARENT = 92;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_adder[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 104;
+	TREE_LEVEL = 1;
+	PARENT = 92;
 }
 TIME_BAR
 {

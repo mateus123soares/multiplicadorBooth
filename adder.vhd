@@ -14,6 +14,9 @@ entity adder is
 end adder;
 
 architecture rtl of adder is
+
 begin
+
 	result_add <= num_add + reg_num_add;
+
 end rtl;
