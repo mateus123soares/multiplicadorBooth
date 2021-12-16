@@ -21,5 +21,5 @@
 # Loading work.booth_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
 # Simulation passed !
-# ** Note: $finish    : booth.vt(1625)
+# ** Note: $finish    : booth.vt(1849)
 #    Time: 1 us  Iteration: 0  Instance: /booth_vlg_vec_tst/tb_out

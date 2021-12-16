@@ -11,7 +11,7 @@ entity machine is
 		write_reg,write_reg2,write_reg3,init_reg : out std_logic;
 		selec_mux : out std_logic_vector(1 downto 0);
 		mr_with_bit_n : out std_logic_vector (2 downto 0);
-		out_add : out std_logic_vector(1 downto 0)
+		out_shift : out std_logic_vector(1 downto 0)
 	);
 
 end entity;
@@ -68,7 +68,7 @@ begin
 				selec_mux <= "00";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(2 downto 0);
-				out_add <= "00";
+				out_shift <= "00";
 			when s1 =>
 				init_reg <= '0';
 				write_reg <= '1';
@@ -77,7 +77,7 @@ begin
 				selec_mux <= "00";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(2 downto 0);
-				out_add <= "01";
+				out_shift <= "00";
 			when s2 =>
 				init_reg <= '0';
 				write_reg <= '0';
@@ -86,7 +86,7 @@ begin
 				selec_mux <= "01";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(4 downto 2);
-				out_add <= "01";
+				out_shift <= "01";
 			when s3 =>
 				init_reg <= '0';
 				write_reg <= '0';
@@ -95,7 +95,7 @@ begin
 				selec_mux <= "01";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(4 downto 2);
-				out_add <= "01";
+				out_shift <= "01";
 			when s4 =>
 				init_reg <= '0';
 				write_reg <= '1';
@@ -104,7 +104,7 @@ begin
 				selec_mux <= "10";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(6 downto 4);
-				out_add <= "10";
+				out_shift <= "01";
 			when s5 =>
 				init_reg <= '0';
 				write_reg <= '0';
@@ -113,7 +113,7 @@ begin
 				selec_mux <= "11";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(6 downto 4);
-				out_add <= "10";
+				out_shift <= "10";
 			when s6 =>
 				init_reg <= '0';
 				write_reg <= '0';
@@ -122,7 +122,7 @@ begin
 				selec_mux <= "11";
 				mr_with_bit <= (input_mr & '0');
 				mr_with_bit_n <= mr_with_bit(6 downto 4);
-				out_add <= "00";
+				out_shift <= "00";
 		end case;
 	end process;
 

@@ -9,7 +9,7 @@ entity booth is
 		input_mr: in std_logic_vector(5 downto 0);
 		rst_PC,clk : in std_logic;
 		--sinal aux
-		saidaReg2,saidaReg3,selec_mux_saida1 : out std_logic_vector(11 downto 0);
+		saidaReg2,saidaReg3,selec_mux_saida1, saida_shift : out std_logic_vector(11 downto 0);
 		saidaReg1 : out std_logic_vector(11 downto 0);
 		selec_mux_saida : out std_logic_vector(1 downto 0);
 		write_reg_saida,write_reg2_saida,write_reg3_saida, init_reg_saida : out std_logic;
@@ -19,6 +19,15 @@ entity booth is
 end entity;
 
 architecture rtl of booth is
+
+component shift_input is
+	port
+	(
+		input_mult : in std_logic_vector(11 downto 0);
+		output_mult : out std_logic_vector(11 downto 0);
+		shift_select : in std_logic_vector(1 downto 0)
+	);
+end component;
 
 component decoder is
 	port
@@ -75,17 +84,17 @@ component machine is
 		write_reg,write_reg2,write_reg3,init_reg : out std_logic;
 		selec_mux : out std_logic_vector(1 downto 0);
 		mr_with_bit_n : out std_logic_vector (2 downto 0);
-		out_add : out std_logic_vector(1 downto 0)
+		out_shift : out std_logic_vector(1 downto 0)
 	);
 
 end component;
 
 signal mr_with_bit : std_logic_vector(6 downto 0);
 signal num, num2, num3 : std_logic_vector(2 downto 0);
-signal result_dec, result_dec2, result_dec3 : std_logic_vector(11 downto 0);
+signal result_dec, result_dec2, result_dec3, result_shift : std_logic_vector(11 downto 0);
 signal output_mux, output_reg1, output_reg2, output_reg3 ,output_add : std_logic_vector(11 downto 0);
 signal write_reg,write_reg2,write_reg3,init_reg : std_logic;
-signal selec_mux, out_add : std_logic_vector(1 downto 0);
+signal selec_mux, out_shift : std_logic_vector(1 downto 0);
 
 begin
 	
@@ -99,7 +108,7 @@ begin
 	init_reg => init_reg,
 	selec_mux => selec_mux,
 	mr_with_bit_n => num,
-	out_add => out_add
+	out_shift => out_shift
 	);
 	
 	init_reg_saida <= init_reg;
@@ -110,13 +119,19 @@ begin
 		result_dec => result_dec
 	);
 	
-	result <= result_dec;
+	shift_select_input : shift_input port map (
+		input_mult => result_dec,
+		output_mult => result_shift,
+		shift_select => out_shift
+	);
+	
+	saida_shift <= result_shift;
 	
 	dec_mux: mux port map (
-		men1 => result_dec,
-		men2 => result_dec,
+		men1 => result_shift,
+		men2 => result_shift,
 		men3 => output_add,
-		men4 => result_dec,
+		men4 => result_shift,
 		sel => selec_mux,
 		result_mux => output_mux
 	);
@@ -163,6 +178,8 @@ begin
 		init_PO => '0',
 		output_reg => output_reg3
 	);
+	
+	result <= output_add;
 	
 	--excluir
 	saidaReg3 <= output_reg3;

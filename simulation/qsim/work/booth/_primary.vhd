@@ -11,6 +11,7 @@ entity booth is
         saidaReg2       : out    vl_logic_vector(11 downto 0);
         saidaReg3       : out    vl_logic_vector(11 downto 0);
         selec_mux_saida1: out    vl_logic_vector(11 downto 0);
+        saida_shift     : out    vl_logic_vector(11 downto 0);
         saidaReg1       : out    vl_logic_vector(11 downto 0);
         selec_mux_saida : out    vl_logic_vector(1 downto 0);
         write_reg_saida : out    vl_logic;
