@@ -1,102 +1,53 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@marcelo-marchioro 
-marcelo-marchioro
-/
-AES128
-Private
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-AES128/aes_top.vhd
-@mateus123soares
-mateus123soares AES PRONTO SEM SDC
-Latest commit 3e22292 on 19 Nov 2019
- History
- 2 contributors
-@mateus123soares@marcelo-marchioro
-60 lines (46 sloc)  1.31 KB
-   
--- Quartus II VHDL Template
--- Signed Adder
-
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
 
-entity aes_top is
-
+entity booth_top is
 
 end entity;
 
-architecture rtl of aes_top is
+architecture rtl of booth_top is
 
-component aes is
+component booth is
 
 	port 
 	(
-		keyW: in std_logic_vector (127 downto 0);
-		saidaOut: out std_logic_vector (127 downto 0);
-		mensagem: in std_logic_vector(127 downto 0);
-		clkW:in std_logic;
-		resetW : in std_logic
+		md, mr : in std_logic_vector(5 downto 0);
+		input_mr: in std_logic_vector(5 downto 0);
+		rst_PC,clk : in std_logic;
+		result : out std_logic_vector(11 downto 0)
 	);
 
 end component;
 
-	--Signal entidade AES
-	signal keyW_sg,saidaOut_sg:std_logic_vector(127 downto 0);
-	signal clkW_sg: std_logic := '0';
-	signal resetW_sg: std_logic := '0';
-	signal mensagem_sg:std_logic_vector(127 downto 0);
-	
-begin
+signal md_sg, mr_sg : std_logic_vector(5 downto 0);
+signal input_mr_sg: std_logic_vector(5 downto 0);
+signal rst_PC_sg : std_logic;
+signal clk_sg : std_logic := '0';
+signal result_sg : std_logic_vector(11 downto 0);
 
-	inst_aes:aes port map(
-							keyW => keyW_sg,
-							mensagem => mensagem_sg,
-							saidaOut => saidaOut_sg,
-							clkW => clkW_sg,
-							resetW => resetW_sg
-							
+begin
+	
+	inst_booth: booth port map(
+		md => md_sg,
+		mr => mr_sg,
+		input_mr => input_mr_sg,
+		rst_PC => rst_PC_sg,
+		clk => clk_sg,
+		result => result_sg
 	);
 	
-	clkW_sg <=not clkW_sg after 2ns;
-	
+   clk_sg <= not clk_sg after 100ns;
 	process
 	begin
 		wait for 0ns;
-			keyW_sg <= x"2B7E151628AED2A6ABF7158809CF4F3C";
-			mensagem_sg <= x"AE2D8A571E03AC9C9EB76FAC45AF8E51";
-			resetW_sg <= '1';
+		   md_sg <= "001010";
+			mr_sg <= "001010";
+			rst_PC_sg <= '1';
 			--00110000110010000001110001000110101000110101110011100100000100011110010111111011110000010001100100011010000010100101001011101111
 			--n
 			--00110000110010000001110001000110101000110101110011100100000100011110010111111011110000010001100100011010000010100101001011101111
-		wait for  2ns;
-			resetW_sg <= '0';
+		wait for  100ns;
+			rst_PC_sg <= '0';
 		wait;
 	end process;
 end rtl;
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
