@@ -93,7 +93,7 @@ signal mr_with_bit : std_logic_vector(6 downto 0);
 signal num, num2, num3 : std_logic_vector(2 downto 0);
 signal result_dec, result_dec2, result_dec3, result_shift : std_logic_vector(11 downto 0);
 signal output_mux, output_reg1, output_reg2, output_reg3 ,output_add : std_logic_vector(11 downto 0);
-signal write_reg,write_reg2,write_reg3,init_reg : std_logic;
+signal write_reg,write_reg2,write_reg3,init_reg : std_logic := '0';
 signal selec_mux, out_shift : std_logic_vector(1 downto 0);
 
 begin
@@ -143,7 +143,7 @@ begin
 		input_reg => output_mux,
 		clk_PO => clk,
 		write_reg => write_reg,
-		init_PO => init_reg,
+		init_PO => rst_PC,
 		output_reg => output_reg1
 	);
 	
@@ -155,7 +155,7 @@ begin
 		input_reg => output_mux,
 		clk_PO => clk,
 		write_reg => write_reg2,
-		init_PO => '0',
+		init_PO => rst_PC,
 		output_reg => output_reg2
 	);
 	
@@ -175,7 +175,7 @@ begin
 		input_reg => output_add,
 		clk_PO => clk,
 		write_reg => write_reg3,
-		init_PO => '0',
+		init_PO => rst_PC,
 		output_reg => output_reg3
 	);
 	

@@ -20,5 +20,5 @@ begin
 	output_mult <= input_mult when "00", 
 						(input_mult(9 downto 0) & "00")	when "01",
 						(input_mult(7 downto 0) & "0000") when "10", 
-						"000000000000" when "11";
+						 "000000000000" when others;
 end rtl;
