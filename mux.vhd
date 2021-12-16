@@ -22,6 +22,6 @@ begin
 	result_mux <= men1 when "00", 
 				 men2	when "01",
 				 men3	when "10", 
-				 men4 when "11";
+				 men4 when others;
 				
 end rtl;
