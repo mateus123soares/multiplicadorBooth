@@ -1,9 +1,5 @@
 Analysis & Synthesis report for booth
-<<<<<<< HEAD
-Thu Dec 16 12:28:29 2021
-=======
-Thu Dec 16 05:15:53 2021
->>>>>>> 98f0e9fa2177332bb4bd1c5cad45a0af1cf8bbeb
+Thu Dec 16 12:51:56 2021
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -47,11 +43,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +-------------------------------------+--------------------------------------------+
-<<<<<<< HEAD
-; Analysis & Synthesis Status         ; Successful - Thu Dec 16 12:28:29 2021      ;
-=======
-; Analysis & Synthesis Status         ; Successful - Thu Dec 16 05:15:52 2021      ;
->>>>>>> 98f0e9fa2177332bb4bd1c5cad45a0af1cf8bbeb
+; Analysis & Synthesis Status         ; Successful - Thu Dec 16 12:51:56 2021      ;
 ; Quartus II 64-Bit Version           ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                       ; booth                                      ;
 ; Top-level Entity Name               ; booth                                      ;
@@ -284,7 +276,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -294,11 +286,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-<<<<<<< HEAD
-    Info: Processing started: Thu Dec 16 12:28:26 2021
-=======
-    Info: Processing started: Thu Dec 16 05:15:47 2021
->>>>>>> 98f0e9fa2177332bb4bd1c5cad45a0af1cf8bbeb
+    Info: Processing started: Thu Dec 16 12:51:51 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off booth -c booth
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file register.vhd
@@ -353,20 +341,11 @@ Warning (21074): Design contains 6 input pin(s) that do not drive logic
 Info (21057): Implemented 220 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 20 input pins
     Info (21059): Implemented 90 output pins
-<<<<<<< HEAD
-    Info (21061): Implemented 105 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 4678 megabytes
-    Info: Processing ended: Thu Dec 16 12:28:29 2021
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
-=======
     Info (21061): Implemented 110 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 4681 megabytes
-    Info: Processing ended: Thu Dec 16 05:15:53 2021
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:05
->>>>>>> 98f0e9fa2177332bb4bd1c5cad45a0af1cf8bbeb
+    Info: Peak virtual memory: 4678 megabytes
+    Info: Processing ended: Thu Dec 16 12:51:56 2021
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:03
 
 
